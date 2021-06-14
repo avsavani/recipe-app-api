@@ -1,6 +1,6 @@
 language: python
 python:
-  - pyhton3.9.5
+  - "3.9"
 
 before_script: pip install docker-compoe
 script:
