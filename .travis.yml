@@ -1,0 +1,8 @@
+language: python
+python:
+  - docker
+
+before_script: pip install docker-compoe
+script:
+  - docker-compose run app sh -c "python manage.py test && flake"
+  
