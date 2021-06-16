@@ -3,14 +3,18 @@ from django.contrib.auth import get_user_model
 
 class ModelTest(TestCase):
 
-    def test_user_create_with_email_and_pass(self):
-        email="abc@example.com"
-        password="123"
-
-        user = get_user_model().objects.create_user(email= email, password=password)
+    def test_create_user_with_email_successful(self):
+        """Test creating a new user with an email is successful"""
+        email = 'test@londonappdev.com'
+        password = 'Password123'
+        user = get_user_model().objects.create_user(
+			email=email,
+			password=password
+		)
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
+
     def test_new_user_email_normalize(self):
         email="test@Example.com"
         user= get_user_model().objects.create_user(email,'123abc')
